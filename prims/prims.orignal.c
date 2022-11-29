@@ -27,18 +27,16 @@ void findMST(int graph[V][V])
     value[0] = 0;
     parent[0] = -1;
 
-    {
-        int u = minkey(value, mstset);
-        mstset[u] = 1;
-        printf("u = %d\n", u);
+    int u = minkey(value, mstset);
+    mstset[u] = 1;
+    printf("u = %d\n", u);
 
-        for (int i = 0; i < V ; i++)
+    for (int i = 0; i < V; i++)
+    {
+        if (graph[u][i] != 0 && mstset[i] == 0 && graph[u][i] < value[i])
         {
-            if (graph[u][i] != 0 && mstset[i] == 0 && graph[u][i] < value[i])
-            {
-                value[i] = graph[u][i];
-                parent[i] = u;  
-            }
+            value[i] = graph[u][i];
+            parent[i] = u;
         }
     }
 

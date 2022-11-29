@@ -19,6 +19,7 @@ int main(int argc, char const *argv[])
         }
     }
 
+    // Djikstra part
     int visited[100] = {0}, dist[100] , prev[100];
     int s = 0 ;
 
