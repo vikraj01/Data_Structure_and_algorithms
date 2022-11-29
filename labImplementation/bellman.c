@@ -29,19 +29,18 @@ void BellmanFord(int graph[][3], int V, int E,
         }
     }
 
-    
     for (int i = 0; i < V; i++)
     {
-	int arr[30];
-	
+        int arr[30];
+
         printf("path of vertex %d:\n", i + 1);
-	i=0;
-	arr[0] = i + 1;
+        i = 0;
+        arr[0] = i + 1;
         printf("%d-", i + 1);
         int temp_index = i;
         while (temp_index != 0)
         {
-	    
+
             printf("%d-", prev[temp_index] + 1);
             temp_index = prev[temp_index];
         }
@@ -68,7 +67,7 @@ void BellmanFord(int graph[][3], int V, int E,
 
 int main()
 {
-    int V = 7;  
+    int V = 7;
     int E = 10;
 
     int graph[][3] = {{0, 1, 6}, {0, 2, 5}, {0, 3, 5}, {2, 1, -2}, {3, 2, -2}, {1, 4, -1}, {2, 4, 1}, {3, 5, -1}, {4, 6, 3}, {5, 6, 3}};
@@ -76,3 +75,9 @@ int main()
     BellmanFord(graph, V, E, 0);
     return 0;
 }
+
+
+
+
+// https://stackoverflow.com/questions/20371647/how-to-get-the-actual-path-found-by-bellman-ford
+// For finding the path

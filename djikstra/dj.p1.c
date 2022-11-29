@@ -40,7 +40,7 @@ int main(int argc, char const *argv[])
                 next = i;
             }
         }
-
+        printf("\n%d \n",next);
         visited[next] = 1;
         for(int i = 0; i < n ;i++){
             if(dist[next] + G[next][i] < dist[i]){
