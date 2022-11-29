@@ -53,9 +53,5 @@ int main(int argc, char const *argv[])
         printf("%d\t",dist[i]);
     }
 
-
-
-
-
     return 0;
 }
