@@ -2,6 +2,21 @@
 #include <stdlib.h>
 #define INF 19019
 
+int findmin(int V[], int D[], int n)
+{
+    int min = INF;
+    int next;
+    for (int i = 0; i < n; i++)
+    {
+        if (V[i] == 0 && min > D[i])
+        {
+            min = D[i];
+            next = i;
+        }
+    }
+    return next;
+}
+
 void dj(int G[100][100], int n, int s)
 {
     int cost[100][100], dist[100], prev[100], visited[100];
@@ -30,15 +45,7 @@ void dj(int G[100][100], int n, int s)
     // Loop goes from 1 to n - 1 but it won't hurt if it goes for  0 to n
     for (int i = 0; i < n; i++)
     {
-        int min = INF;
-        for (int i = 0; i < n; i++)
-        {
-            if (visited[i] == 0 && min > dist[i])
-            {
-                min = dist[i];
-                next = i;
-            }
-        }
+        int next = findmin(visited, dist, n);
         visited[next] = 1;
         for (int i = 0; i < n; i++)
         {
