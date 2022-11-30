@@ -5,31 +5,36 @@ int queue[100] = {0};
 int rear = 0;
 int front = 0;
 
-void BFS(int G[100][100], int s, int visited[], int n){
+void BFS(int G[100][100], int s, int visited[], int n)
+{
     visited[s] = 1;
     queue[rear++] = s;
-    while(rear != front){
+    while (rear != front)
+    {
         int u = queue[front++];
-        printf("%d\t",u);
-        for(int i = 0 ; i < n ; i++){
-            if(visited[i] == 0 && G[u][i] == 1){
+        printf("%d\t", u);
+        for (int i = 0; i < n; i++)
+        {
+            if (visited[i] == 0 && G[u][i] == 1)
+            {
                 visited[i] = 1;
                 queue[rear++] = i;
             }
         }
     }
-
 }
 
-
-void BFSDis(int G[100][100], int n){
-    int visited[100]  = {0};
-    for(int i = 0 ; i < n ;i++){
-        if(visited[i] == 0){
+void BFSDis(int G[100][100], int n)
+{
+    int visited[100] = {0};
+    for (int i = 0; i < n; i++)
+    {
+        if (visited[i] == 0)
+        {
             BFS(G, i, visited, n);
         }
     }
-} 
+}
 
 int main(int argc, char const *argv[])
 {

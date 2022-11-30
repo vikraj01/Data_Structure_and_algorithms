@@ -59,6 +59,10 @@ void kruskal(int edges, int vertices)
                 v = edge[j].v2;
             }
         }
+
+        // or u can sort them as well the edges or keep finding the minimun
+        // the take u and v find parent
+        // if not same parent join them
         if (find(u) != find(v))
         {
             result[i].v1 = u;
